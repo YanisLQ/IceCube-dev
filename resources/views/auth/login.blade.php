@@ -27,7 +27,10 @@
             <h2>Bienvenue ! </h2>
             <p class='ml-1'> Table n°{{$table}}</p>
         </div>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login', [
+            'table' => $table,
+            'entp' => $entreprises->id
+        ]) }}">
             @csrf
 
             <!-- Email Address -->

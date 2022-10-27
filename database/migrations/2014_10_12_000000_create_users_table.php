@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('telephone');
             $table->integer('fidelity_points')->default(0);
+            $table->integer('id_entreprise')->nullable(true);
+            $table->integer('role')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

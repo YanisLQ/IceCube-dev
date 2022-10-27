@@ -38,8 +38,10 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return view('dashboard', [
+            "entp" => $request->id,
+            "table" => $request->table
+        ]);
     }
 
     /**
