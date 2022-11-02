@@ -21,7 +21,10 @@
             </a>
         </x-slot>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register', [
+            'entp' => $entreprises->id,
+            'table' => $table
+        ]) }}">
             @csrf
 
             <!-- Name -->

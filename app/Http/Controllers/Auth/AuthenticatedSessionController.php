@@ -36,11 +36,10 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
         $request->session()->regenerate();
-        return view('dashboard', [
-            "entp" => $request->id,
-            "table" => $request->table
+        return redirect()->route('dashboard', [
+            'table' => $request->table,
+            'entreprises' => $request->entp,
         ]);
     }
 

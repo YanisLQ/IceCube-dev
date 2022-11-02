@@ -54,6 +54,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
         Auth::login($user);
-        return redirect(RouteServiceProvider::HOME);
+        if(auth()->user()){
+            //@MEMO : c'est ici, on peut gérer le rôle des users créer
+            auth()->user()->assignRole('user');
+        }
+        return view('dashboard', [
+            "entp" => $request->id,
+            "table" => $request->table
+        ]);
     }
 }
