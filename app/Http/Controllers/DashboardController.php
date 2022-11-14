@@ -15,8 +15,11 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $entreprises = DB::table('entreprises')->where('id', $request->entreprises)->first();
+        $categories = DB::table('sun_burger_categories')->get();
+
         return view('dashboard', [
             'logo' => $entreprises->logo,
-
+            'categories' => $categories[0],
+            'categories2' => $categories[1]
         ]);
     }}
