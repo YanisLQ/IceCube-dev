@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('produits_sun', function (Blueprint $table) {
             $table->id();
+            $table->string('ingredient');
+            $table->string('nom');
+            $table->string('photo');
+            $table->double('prix');
+            $table->integer('categorie');
             $table->timestamps();
         });
     }

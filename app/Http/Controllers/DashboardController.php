@@ -19,7 +19,6 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'logo' => $entreprises->logo,
-            'categories' => $categories[0],
-            'categories2' => $categories[1]
+            'categories' => $categories,
         ]);
     }}

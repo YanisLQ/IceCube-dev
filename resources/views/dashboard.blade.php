@@ -10,32 +10,25 @@
             <p class="py-4">Une envie de plats ?</p>
         </div>
         <div class="mx-auto scrolling-wrapper">
-            <div class="cards p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg" style="margin-right: 16px; box-shadow: 3px 5px 5px #00000024;">
-                <img src="{{$categories->image}}" style="width: 100px"/>
-                {{$categories->category_name}}
-            </div>
-            <div class="cards p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg" style="margin-right: 16px; box-shadow: 3px 5px 5px #00000024;">
-                <img src="{{$categories2->image}}" style="width: 100px"/>
-                {{$categories2->category_name}}
-            </div>
-            <div class="cards p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg" style="margin-right: 16px; box-shadow: 3px 5px 5px #00000024;">
-                <img src="{{$categories->image}}" style="width: 100px"/>
-                {{$categories->category_name}}
-            </div>
+            @foreach($categories as $categorie)
+
+                <div onclick="location.href='{{ route('product', $categorie->id) }}';" class="cards p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg" style="margin-right: 16px; box-shadow: 3px 5px 5px #00000024;">
+                    <img src="{{$categorie->image}}" style="width: 100px; margin-left: auto; margin-right: auto;"/>
+                    <p>{{$categorie->category_name}}</p>
+                </div>
+            @endforeach
         </div>
         <div class="ml-4">
             <p class="py-4">Une petite soif ?</p>
         </div>
-        <div class="mx-auto flex justify-evenly">
-            <div class="p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg">
-                <img src="{{$categories->image}}" style="width: 100px"/>
-                {{$categories->category_name}}
-            </div>
-            <div class="p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg">
-                <img src="{{$categories->image}}" style="width: 100px"/>
-                {{$categories->category_name}}
-            </div>
+        <div class="mx-auto scrolling-wrapper">
+            @foreach($categories as $categorie)
 
+                <div class="cards p-6 bg-white border-b border-gray-200 text-center ml-4 rounded-lg" style="margin-right: 16px; box-shadow: 3px 5px 5px #00000024;">
+                    <img src="{{$categorie->image}}" style="width: 100px"/>
+                    {{$categorie->category_name}}
+                </div>
+            @endforeach
         </div>
     </section>
 

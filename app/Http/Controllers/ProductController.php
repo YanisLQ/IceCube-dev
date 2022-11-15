@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     //
-    public function show(Product $product)
+    public function show(Request $request)
 {
-      return view("products.index", compact("product"));
+        $sous_categories = DB::table('produits_sun')->where('categorie', $request->product_id)->get();
+      return view("products.index", [
+        'sous_categories' => $sous_categories,
+    ]);
 }
 }
